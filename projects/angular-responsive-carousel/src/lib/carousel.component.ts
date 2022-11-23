@@ -284,7 +284,10 @@ export class CarouselComponent implements OnDestroy {
         this.utils = new Utils(this.carouselProperties);
         this.cells = new Cells(this.carouselProperties, this.utils);
         this.container = new Container(this.carouselProperties, this.utils, this.cells);
-        this.slide = new Slide(this.carouselProperties, this.utils, this.cells, this.container);
+        this.slide = new Slide(this.carouselProperties, this.utils, this.cells, this.container, (counter: number) => {
+			//assert counter == this.slideCounter;
+			this.events.emit({'event': 'slide-counter-changed', slideCounter: this.slideCounter});
+		});
         this.carousel = new Carousel(this.carouselProperties, this.utils, this.cells, this.container, this.slide);
     
         if (this.autoplay) {

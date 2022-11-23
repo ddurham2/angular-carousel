@@ -16,6 +16,7 @@ export class Slide {
     isNotClickOnArrow: boolean = false;
     initialPositionX: number = 0;
     currentPositionX: number = 0;
+    _lastEmittedCounter: number = -1;
 
     /* The slide length has been limited by the limitSlideLength() method */
     isSlideLengthLimited: boolean = false;
@@ -75,7 +76,8 @@ export class Slide {
     constructor(private carouselProperties: CarouselProperties,
         private utils: any,
         private cells: any,
-        private container: any) {
+        private container: any,
+        private onCounterChanged: (counter: number)=>void) {
 
         this.init();
     }
@@ -318,6 +320,10 @@ export class Slide {
 
         if (this.direction === 'right') {
             this.counter = this.counter - this.slideLength;
+        }
+        if (this._lastEmittedCounter != this.counter) {
+            this.onCounterChanged(this.counter);
+            this._lastEmittedCounter = this.counter;
         }
     }
 

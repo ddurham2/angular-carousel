@@ -84,6 +84,14 @@ To use lazy loading, pass the carousel an array of images, as shown in the examp
 
 The IvyCarousel also has a Pro version, with an [extended API](http://ivylab.space/carousel).
 
+## Events
+
+Events are received by trapping the 'events' output property: e.g. <carousel (events)="handler($event)" ...>.
+
+| name | data | description |
+| ---- | ---- | ----------- |
+| $event.event == 'slide-counter-changed' | $event.slideCounter | Emitted when the slide changes.  $event.slideCounter will be the left most slider number from [0, number of slides) |
+
 ## Author services
 
 Are you interested in this library but lacks features? Write to the author, he can do it for you.

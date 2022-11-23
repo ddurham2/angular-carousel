@@ -32,7 +32,12 @@ export class AppComponent {
 
     }
 
+	public slideCounter: number = -1;
+
 	handleCarouselEvents(event:any) {
 		console.log(event);
+		if (event['event'] == 'slide-counter-changed') {
+			this.slideCounter = event['slideCounter'];
+		}
 	}
 }

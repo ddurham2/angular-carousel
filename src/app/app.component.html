@@ -5,9 +5,11 @@
 		<!-- Basic -->
 		<div class="demo">
 			<carousel
+				(events)="handleCarouselEvents($event)"
 				[images]="images"
 				[objectFit]="'cover'">
 			</carousel>
+			<div>Slide Counter: {{slideCounter}}</div>
 		</div>
 
 		<!-- Image slider -->
