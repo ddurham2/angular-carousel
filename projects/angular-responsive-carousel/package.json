@@ -24,8 +24,8 @@
     "url": "https://github.com/ivylaboratory/angular-carousel/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^13.3.11",
-    "@angular/core": "^13.3.11"
+    "@angular/common": "^13.3",
+    "@angular/core": "^13.3"
   },
   "dependencies": {
     "tslib": "^2.3.1"
