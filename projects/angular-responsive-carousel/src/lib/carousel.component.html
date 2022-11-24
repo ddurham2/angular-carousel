@@ -1,5 +1,3 @@
-<div class="carousel-counter" *ngIf="isCounter">{{counter}}</div>
-
 <div class="carousel-container" [class.carousel-moving]="isMoving">
 	<div class="carousel-cells" #cells (transitionend)="handleTransitionendCellContainer($event)">
 		<ng-content></ng-content>
@@ -24,6 +22,8 @@
 		<div class="carousel-dot" [class.carousel-dot-active]="i === activeDotIndex" *ngFor="let dot of dotsArr; index as i"></div>
 	</div>
 </div>
+
+<div class="carousel-counter" *ngIf="isCounter">{{counter}}</div>
 
 <div class="carousel-arrows" 
 	[class.carousel-arrows-outside]="arrowsOutside" 
