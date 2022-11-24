@@ -110,7 +110,7 @@ export class CarouselComponent implements OnDestroy {
     @Output() events: EventEmitter < any > = new EventEmitter < any > ();
 
     @Input() id!: number;
-    @Input() height: number = 200;
+    @Input() height: any = 200;
     @Input() width!: number;
     @Input() autoplay: boolean = false;
     @Input() autoplayInterval: number = 5000;
@@ -209,7 +209,6 @@ export class CarouselComponent implements OnDestroy {
     constructor(
         private elementRef: ElementRef,
         private ref: ChangeDetectorRef) {
-
     }
 
     ngOnInit() {
@@ -330,7 +329,7 @@ export class CarouselComponent implements OnDestroy {
     }
 
     setDimensions() {
-        this.hostStyleHeight = this.height + 'px';
+        this.hostStyleHeight = (typeof this.height == 'string') ? this.height : (this.height + 'px');
         this.hostStyleWidth = this.width + 'px';
     }
 
