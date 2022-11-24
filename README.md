@@ -58,7 +58,7 @@ To use lazy loading, pass the carousel an array of images, as shown in the examp
 
 | name | type | default | description |
 |------|------|---------|-------------|
-| height | number | | Carousel height. |
+| height | number or string | | Carousel height in numeric pixels, or a css string with units. |
 | width | number | | Carousel Width. |
 | cellWidth | number, '100%' | 200 | Cell width. |
 | cellsToShow | number | | The number of cells to display, regardless of the width of the container. |

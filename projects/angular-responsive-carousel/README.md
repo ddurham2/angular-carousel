@@ -58,7 +58,7 @@ To use lazy loading, pass the carousel an array of images, as shown in the examp
 
 | name | type | default | description |
 |------|------|---------|-------------|
-| height | number | | Carousel height. |
+| height | number or string | | Carousel height in numeric pixels, or a css string with units. |
 | width | number | | Carousel Width. |
 | cellWidth | number, '100%' | 200 | Cell width. |
 | cellsToShow | number | | The number of cells to display, regardless of the width of the container. |
@@ -83,6 +83,14 @@ To use lazy loading, pass the carousel an array of images, as shown in the examp
 | arrowsTheme | 'light', 'dark' | 'light' | Arrow color theme. |
 
 The IvyCarousel also has a Pro version, with an [extended API](http://ivylab.space/carousel).
+
+## Events
+
+Events are received by trapping the 'events' output property: e.g. <carousel (events)="handler($event)" ...>.
+
+| name | data | description |
+| ---- | ---- | ----------- |
+| $event.event == 'slide-counter-changed' | $event.slideCounter | Emitted when the slide changes.  $event.slideCounter will be the left most slider number from [0, number of slides) |
 
 ## Author services
 
