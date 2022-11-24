@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+ng build angular-responsive-carousel
+
+cd dist/angular-responsive-carousel
+cp -f ../../.npmrc .
+npm publish
