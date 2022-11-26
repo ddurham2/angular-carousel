@@ -231,6 +231,11 @@ export class CarouselComponent implements OnDestroy {
         this.touches.on('tap', this.handleTap);
 
         this.setDimensions();
+
+        // in some webviews this isn't called automatically after setup
+        setTimeout(() => {
+            this.resize();
+        }, 0);
     }
 
     ngAfterViewInit() {
