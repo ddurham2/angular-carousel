@@ -235,7 +235,7 @@ export class CarouselComponent implements OnDestroy {
         // in some webviews this isn't called automatically after setup
         setTimeout(() => {
             this.resize();
-        }, 0);
+        }, 100); // 0 doesn't cut it all the time
     }
 
     ngAfterViewInit() {

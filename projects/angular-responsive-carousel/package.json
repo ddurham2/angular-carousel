@@ -1,6 +1,6 @@
 {
   "name": "@ddurham2/angular-responsive-carousel",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "description": "Carousel for Angular. A simple solution for horizontal scrolling images with lazy loading.",
   "repository": {
     "type": "git",
