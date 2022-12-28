@@ -38,7 +38,6 @@ export class CarouselComponent implements OnDestroy {
     cellLength!: number;
     dotsArr: any;
     carouselProperties!: CarouselProperties;
-    savedCarouselWidth!: number;
 
     get isContainerLocked() {
         if (this.carousel) {
@@ -185,10 +184,14 @@ export class CarouselComponent implements OnDestroy {
     @HostBinding('style.height') hostStyleHeight!: string;
     @HostBinding('style.width') hostStyleWidth!: string;
 
+    private _resizeTimer: any = null;
     @HostListener('window:resize', ['$event'])
     onWindowResize(event: any) {
-        if (this.utils.visibleWidth !== this.savedCarouselWidth) {
-            this.resize();
+        if (!this._resizeTimer) {
+            this._resizeTimer = setTimeout(() => {
+                this._resizeTimer = null;
+                this.resize();
+            }, 100); // delayed because device rotation sometimes takes a few iterations to settle down
         }
     }
 
@@ -244,7 +247,6 @@ export class CarouselComponent implements OnDestroy {
         this.dotsArr = Array(this.cellLength).fill(1);
         this.ref.detectChanges();
         this.carousel.lineUpCells();
-        this.savedCarouselWidth = this.carouselWidth;
 
         /* Start detecting changes in the DOM tree */
         this.detectDomChanges();
@@ -301,7 +303,6 @@ export class CarouselComponent implements OnDestroy {
 
     resize() {
         this.landscapeMode = this.isLandscape;
-        this.savedCarouselWidth = this.carouselWidth;
 
         this.carouselProperties.cellWidth = this.getCellWidth();
         this.cells.updateProperties(this.carouselProperties);
