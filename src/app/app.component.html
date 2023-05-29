@@ -29,7 +29,7 @@
 		<!-- HTML content -->
 		<div class="demo">
 			<h3>HTML content</h3>
-			<carousel class="carousel-html-content">
+			<carousel class="carousel-html-content" [cellsToShow]="1" [cellsToScroll]="1" [height]="'75vh'" [arrowsOutside]="false" (events)="onCarouselEvent($event)">
 				<div class="carousel-cell">1</div>
 				<div class="carousel-cell">2</div>
 				<div class="carousel-cell">3</div>
@@ -61,11 +61,13 @@
 
 		<!-- cellsToShow -->
 		<div class="demo">
-			<h3>cellsToShow = 5</h3>
+			<h3>cellsToShow = 1</h3>
 			<carousel
 				[images]="images"
-				[height]="150"
-				[cellsToShow]="5">
+				[height]="'75vh'"
+				[cellsToShow]="1"
+				[cellsToScroll]="1"
+>
 			</carousel>
 		</div>
 

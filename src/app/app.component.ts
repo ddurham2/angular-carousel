@@ -40,4 +40,8 @@ export class AppComponent {
 			this.slideCounter = event['slideCounter'];
 		}
 	}
+
+	onCarouselEvent(e: any) {
+		console.log('event: ', e);
+	}
 }
